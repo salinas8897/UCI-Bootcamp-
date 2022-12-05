@@ -1,0 +1,140 @@
+$background-color: #082B59;
+$brown: #59331D;
+$light-brown: #d98555;
+$std-color: #f2f2f2;
+$sans: sans-serif;
+$std-px: 10px;
+$rem: 1rem;
+@mixin boxmodel($margin, $padding) {
+margin: $margin;
+padding: $padding;
+}
+
+body {
+  background-color: $background-color;
+  &{
+    @include boxmodel(0, 0)
+}
+  font-family: 'Lato', $sans;
+  line-height: 2;
+}
+h1, h2, h3 {
+  font-family: 'Poppins', $sans;
+}
+h1 {
+  font-size: $rem * 2;
+  margin-bottom: 0;
+}
+/* make images flexible */
+img {
+  max-width: 100%;
+}
+a {
+  color: $brown;
+    &:hover {
+     text-decoration: none;
+     }
+}
+header {
+  border-bottom: $std-px solid $light-brown;
+}
+/* navbar styling */
+nav {
+    ul {
+     &{
+        @include boxmodel(0, 0)
+     }
+     list-style-type: none;
+     display: flex;
+     flex-flow: row wrap;
+     justify-content: center;
+     }
+    li {
+     margin: 0 $rem $rem $rem;
+     font-size: $rem + 0.3;
+     }
+    .logo {
+        img {
+         max-width: $std-px * 15;
+         }
+        & {
+         flex-basis: 100%;
+         text-align: center;
+         }
+    }
+    a {
+     color: white;
+     text-decoration: none;
+     display: block;
+        &:hover {  
+         color: $light-brown;
+         }
+     }
+}
+/* establishes a white background */
+.main-bkgd {
+  background: #ffffff url(https://assets.codepen.io/6306176/gulp-bean-bkgd.jpg) repeat-x bottom;
+  padding-bottom: $std-px * 30;
+}
+/* sits inside of the white background, centered */
+.main {
+  max-width: $std-px * 120;
+  &{
+    @include boxmodel(0 auto, $rem * 2)
+  }
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+article {
+  flex-basis: 73%;
+}
+figure {
+  margin: $rem * 3 0 0 0;
+  flex-basis: 25%;
+  background-color: $brown;
+  border-radius: 10px;
+    img {
+     border-top-left-radius: $std-px;
+     border-top-right-radius: $std-px;
+     }
+}
+figcaption {
+  color: $std-color;
+  padding: $rem / 2;
+}
+.button {
+  display: inline-block;
+  background-color: $brown;
+  border-radius: $std-px;
+  &{
+    @include boxmodel(0, $rem / 2 $rem)
+  }
+  color: $std-color;
+  text-decoration: none;
+  border: $std-px - 7 solid $brown;
+    &:hover {
+     background-color: $std-color;
+     color: $brown;
+     }
+}
+footer {
+  color: $std-color;
+  text-align: center;
+  border-top: $std-px solid $light-brown;
+    ul {
+     list-style-type: none;
+     &{
+        @include boxmodel(0, 0)
+     }
+     display: flex;
+     flex-flow: row wrap;
+     justify-content: center;
+        a {
+         color: $std-color;
+         font-size: $rem * 2;
+         display: block;
+         margin: 0 $rem $rem * 3 $rem;
+         }
+     }
+}
